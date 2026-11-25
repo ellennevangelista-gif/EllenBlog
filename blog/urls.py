@@ -5,6 +5,7 @@ urlpatterns = [
     # Rota para página inicial 
     path('', views.home, name='home'),
     path('contacts/', views.contacts, name='contacts'),
+    path('post/<int:id>/', views.post_detail, name='post_detail'),
 ]
 
 
