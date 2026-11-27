@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 {% load static %}
-{% static 'img/anonimous.jpg' as default_image %}
 <html lang="pt-BR">
 
 <head>
@@ -17,7 +16,7 @@
 
     <nav class="container navbar navbar-expand-md navbar-dark text-bg-dark fixed-top mx-auto rounded-bottom">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><i class="bi bi-bootstrap-fill text-warning"></i></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><i class="bi bi-radar"></i></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
@@ -39,7 +38,7 @@
                     {% if request.user.is_authenticated %}
 
                     <a href="{% url 'profile' %}" class="d-flex align-items-center">
-                        <img src="{{ user.image|default:default_image }}" alt="{{ user.name|default:user.username }}" class="rounded-circle d-block me-2" referrerpolicy="no-referrer">
+                        <img src="{{ user.image_url }}" alt="{{ user.name|default:user.username }}" class="rounded-circle d-block me-2" referrerpolicy="no-referrer">
                         <span>Perfil</span>
                     </a>
 
@@ -62,13 +61,13 @@
             </div>
         </div>
     </nav>
-    <header class="container rounded text-dark mx-auto p-0">
+    <header class="container rounded text-light mx-auto p-0">
         <div class="p-3">
             <h1 class="d-flex align-items-center gap-3 justify-content-center"><i class="bi bi-bootstrap"></i><span>Blog</span></h1>
         </div>
     </header>
 
-    <main class="container d-flex flex-column flex-md-row p-0 flex-grow-1">
+    <main class="container d-flex flex-column flex-md-row p-0 flex-grow-1 gap-3">
         <div class="main-article-section bg-light p-3 flex-fill flex-grow-1">
             {% if messages %}
             {% for message in messages %}
